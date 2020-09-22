@@ -27,17 +27,17 @@ public class Main {
     private static Main GetAndPost;
 
     public static void main(String args[]) throws IOException {
-        Client client = ClientBuilder.newBuilder().register(JacksonFeature.class).build();
-        System.out.println("Please enter a pokemon name: ");
-        Scanner scanner = new Scanner(System.in);
-        String input = scanner.next().toLowerCase();
-        String link = "https://pokeapi.co/api/v2/pokemon/" + input; //adds it to the link for info on that pokemon
-        Pokemon newPokemon = client
-                .target(link)
-                .request(MediaType.APPLICATION_JSON_TYPE)
-                .get(Pokemon.class);
-        System.out.println(newPokemon.getSpriteURL());
-        int x = 3;
+//        Client client = ClientBuilder.newBuilder().register(JacksonFeature.class).build();
+//        System.out.println("Please enter a pokemon name: ");
+//        Scanner scanner = new Scanner(System.in);
+//        String input = scanner.next().toLowerCase();
+//        String link = "https://pokeapi.co/api/v2/pokemon/" + input; //adds it to the link for info on that pokemon
+//        Pokemon newPokemon = client
+//                .target(link)
+//                .request(MediaType.APPLICATION_JSON_TYPE)
+//                .get(Pokemon.class);
+//        System.out.println(newPokemon.getSpriteURL());
+
 
 
 

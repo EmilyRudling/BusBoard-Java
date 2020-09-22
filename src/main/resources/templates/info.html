@@ -6,13 +6,16 @@
     <!--@thymesVar id="busInfo" type="training.busboard.web.BusInfo"-->
 
     <head>
-        <title>Bus Information</title>
+        <title>Pokemon search!</title>
     </head>
     <body>
         <div layout:fragment="content" class="container body-content">
-            <h2>Bus Information</h2>
+            <h2>Pokemon Information</h2>
             <div>
-                <p>You entered postcode <span th:text="${busInfo.postcode}"></span></p>
+                <p>You entered pokemon: <span th:text="${pokemonInfo.name}"></span></p>
+                <p>Abilities: <span th:text="${pokemonInfo.abilities}"></span></p>
+                <p>Sprite: <span th:text="${pokemonInfo.getSpriteURL()}"></span></p>
+                <img th:src="${pokemonInfo.getSpriteURL()}" alt="Sprite" style="width:500px;height:500px;" >
             </div>
         </div>
     </body>

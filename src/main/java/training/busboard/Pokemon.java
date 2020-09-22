@@ -16,5 +16,5 @@ public class Pokemon {
     public String getSpriteURL(){
         return(String) sprites.get("front_default");
     }
-   // public String species;
+   //public String species;
 }
