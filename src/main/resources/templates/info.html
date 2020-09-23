@@ -13,8 +13,7 @@
             <h2>Pokemon Information</h2>
             <div>
                 <p>You entered pokemon: <span th:text="${pokemonInfo.name}"></span></p>
-                <p>Abilities: <span th:text="${pokemonInfo.abilities}"></span></p>
-                <p>Sprite: <span th:text="${pokemonInfo.getSpriteURL()}"></span></p>
+                <p>Abilities: <span th:text="${pokemonInfo.getAbilityName()}"></span></p>
                 <img th:src="${pokemonInfo.getSpriteURL()}" alt="Sprite" style="width:500px;height:500px;" >
             </div>
         </div>
