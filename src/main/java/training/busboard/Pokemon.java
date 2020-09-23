@@ -11,7 +11,7 @@ import java.util.List;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Pokemon {
     public String name;
-    public List<Object> abilities;
+    public List<LinkedHashMap> abilities;
     public int id;
     public LinkedHashMap sprites;
 
@@ -20,22 +20,22 @@ public class Pokemon {
         return(String) sprites.get("front_default");
     }
 
-//    //these return the abilities
-//    public Object getAbilities(int i) {
-//        return abilities.get(i);
-//    }
-//    public String getAbility(int i){
-//        return getAbilities(i).get("ability");
-//    }
-//    public String getAbilityName(){
-//        String abilityString = "";
-//        for (int i = 0; i < abilities.size(); i++){
-//            String x = getAbility(i).get("name");
-//            abilityString = abilityString + " " + x;
-//        }
-//        return abilityString;
-//        //this returns the abilities in an easy to read string
-//    }
+    //these return the abilities
+    public LinkedHashMap getAbilities(int i) {
+        return abilities.get(i);
+    }
+    public LinkedHashMap getAbility(int i){
+        return (LinkedHashMap) getAbilities(i).get("ability");
+    }
+    public String getAbilityName(){
+        String abilityString = "";
+        for (int i = 0; i < abilities.size(); i++){
+            String x = (String) getAbility(i).get("name");
+            abilityString = abilityString + " " + x;
+        }
+        return abilityString;
+        //this returns the abilities in an easy to read string
+    }
 
     //finds the species of the pokemon
      public String species(){
