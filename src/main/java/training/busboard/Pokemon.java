@@ -1,7 +1,12 @@
 package training.busboard;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.sun.imageio.plugins.png.PNGImageReader;
+import org.glassfish.jersey.jackson.JacksonFeature;
+import org.springframework.web.servlet.ModelAndView;
 
+import javax.ws.rs.client.Client;
+import javax.ws.rs.client.ClientBuilder;
+import javax.ws.rs.core.MediaType;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -13,6 +18,8 @@ public class Pokemon {
     public String name;
     public List<LinkedHashMap> abilities;
     public int id;
+    public LinkedHashMap evolution_chain;
+    public LinkedHashMap species;
     public LinkedHashMap sprites;
 
     //this gets the pokemon sprite
@@ -38,7 +45,21 @@ public class Pokemon {
     }
 
     //finds the species of the pokemon
-     public String species(){
-          return null;
+     public String getSpeciesURL(){
+         return(String) species.get("url");
      }
+    // finds the evolution chain
+    public String getChainURL(){
+        Client client = ClientBuilder.newBuilder().register(JacksonFeature.class).build();
+        String link2= getSpeciesURL(); //adds it to the link for info on that pokemon
+        Pokemon newPokemon = client
+                .target(link2)
+                .request(MediaType.APPLICATION_JSON_TYPE)
+                .get(Pokemon.class);
+        return(String) evolution_chain.get("url");
+    }
+
 }
+
+
+
